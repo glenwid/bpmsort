@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiscogsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/collection/{username}', [DiscogsController::class, 'getCollection']);
+
+Route::get('/test', function(Request $request) {
+    return response('test', 200);
 });
