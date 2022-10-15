@@ -14,7 +14,7 @@ class CreateTracksTable extends Migration
     public function up()
     {
         Schema::create('tracks', function (Blueprint $table) {
-            $table->id();
+            $table->id('track_id');
             $table->timestamps();
 
             $table->string('title');

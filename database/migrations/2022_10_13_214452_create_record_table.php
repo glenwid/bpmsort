@@ -14,10 +14,11 @@ class CreateRecordTable extends Migration
     public function up()
     {
         Schema::create('record', function (Blueprint $table) {
-            $table->id();
+            $table->id('record_id');
             $table->timestamps();
 
-            $table->string('master_id');
+            $table->integer('discogs_id');
+            $table->integer('discogs_master_id');
             $table->string('title');
         });
     }

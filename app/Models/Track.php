@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Model;
 
-class Track
+class Track extends Model
 {
+    protected $primaryKey = 'track_id';
+    protected $table = 'tracks';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -11,6 +15,8 @@ class Track
      */
     protected $fillable = [
         'title',
-        'master_id',
+        'duration',
+        'position',
+        'bpm'
     ];
 }
