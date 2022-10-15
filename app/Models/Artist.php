@@ -12,5 +12,6 @@ class Artist extends Model
      */
     protected $fillable = [
         'name',
+        'discogs_id'
     ];
 }

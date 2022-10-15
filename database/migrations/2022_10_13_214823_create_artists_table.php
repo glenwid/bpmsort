@@ -21,6 +21,7 @@ class CreateArtistsTable extends Migration
             $table->timestamps();
 
             $table->string('name');
+            $table->integer('discogs_id');
         });
     }
 
