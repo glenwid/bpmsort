@@ -13,7 +13,7 @@ class CreateRecordTable extends Migration
      */
     public function up()
     {
-        Schema::create('record', function (Blueprint $table) {
+        Schema::create('records', function (Blueprint $table) {
             $table->id('record_id');
             $table->timestamps();
 
@@ -30,6 +30,6 @@ class CreateRecordTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('record');
+        Schema::dropIfExists('records');
     }
 }
