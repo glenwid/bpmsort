@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/collection/{username}', [DiscogsController::class, 'getCollection']);
+Route::get('/collection/{username}', [DiscogsController::class, 'pullUserCollection']);
 
 Route::get('/test', function(Request $request) {
     return response('test', 200);
