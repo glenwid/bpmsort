@@ -13,12 +13,12 @@ class CreateRecordTracksTable extends Migration
      */
     public function up()
     {
-        Schema::create('record_tracks', function (Blueprint $table) {
+        Schema::create('record_track', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
             $table->foreignId('record_id');
-            $table->foreignId('track_id')->unique(); 
+            $table->foreignId('track_id')->unique();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateRecordTracksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('record_tracks');
+        Schema::dropIfExists('record_track');
     }
 }
