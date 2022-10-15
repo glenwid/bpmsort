@@ -16,7 +16,7 @@ class Record extends Model
      */
     protected $fillable = [
         'title',
-        'master_id',
+        'discogs_master_id',
         'discogs_id'
     ];
 
