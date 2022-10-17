@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DiscogsController;
+use App\Models\Record;
+use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/collection/{username}', [DiscogsController::class, 'pullUserCollection']);
+Route::get('/discogs/collection/{username}', [DiscogsController::class, 'pullUserCollection']);
+
+Route::get('/discogs/tracks', [DiscogsController::class, 'pullTracks']);
 
 Route::get('/test', function(Request $request) {
-    return response('test', 200);
+    return response('test');
 });
