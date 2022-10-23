@@ -18,9 +18,9 @@ class CreateTracksTable extends Migration
             $table->timestamps();
 
             $table->string('title');
-            $table->string('duration');
-            $table->string('position');
-            $table->integer('bpm');
+            $table->string('duration')->nullable();
+            $table->string('position')->nullable();
+            $table->integer('bpm')->nullable();
         });
     }
 
