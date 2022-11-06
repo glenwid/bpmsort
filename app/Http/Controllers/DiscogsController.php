@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artist;
 use App\Models\Record;
-use App\Models\Relations\RecordArtist;
-use App\Models\Relations\RecordTrack;
+use App\Models\Relations\RecordArtists;
 use App\Models\Track;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -56,9 +55,9 @@ class DiscogsController extends BaseController
                         }
 
                         # link artist with the record
-                        RecordArtist::create([
+                        RecordArtists::create([
                             'record_id' => $newRecord->getKey(),
-                            'artist_id' => Artist::where('discogs_id', $artist->id)->first()->artist_id
+                            'artist_id' => Artist::where('discogs_id', $artist->id)->first()->getKey()
                         ]);
                     }
                 }
@@ -125,7 +124,7 @@ class DiscogsController extends BaseController
                                 ]);
 
                                 # link it with the record
-                                RecordTrack::create([
+                                RecordTracks::create([
                                     'track_id' => $arrival->track_id,
                                     'record_id' => $record->record_id,
                                 ]);
