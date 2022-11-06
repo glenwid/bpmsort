@@ -21,6 +21,6 @@ class Track extends Model
     ];
 
     public function record() {
-        return $this->hasOne(Record::class);
+        return $this->belongsTo(Record::class);
     }
 }
