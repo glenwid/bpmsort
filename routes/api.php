@@ -1,5 +1,6 @@
 <?php
 
+use Aerni\Spotify\Spotify as SpotifySpotify;
 use App\Http\Controllers\DiscogsController;
 use App\Http\Controllers\SpotifyController;
 

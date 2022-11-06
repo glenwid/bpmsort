@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artist extends Model
 {
-    protected $primaryKey = 'artist_id';
     /**
      * The attributes that are mass assignable.
      *

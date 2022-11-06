@@ -7,7 +7,6 @@ use App\Models\Track;
 
 class Record extends Model
 {
-    protected $primaryKey = 'record_id';
     protected $table = 'records';
 
     /**
@@ -18,18 +17,15 @@ class Record extends Model
     protected $fillable = [
         'title',
         'discogs_master_id',
-        'discogs_id'
+        'discogs_id',
+        'artist_id'
     ];
 
     public function artists() {
-        return $this->belongsToMany(Artist::class, 'record_artist', 'artist_id', 'record_id');
+        return $this->belongsToMany(Artist::class, 'record_artists');
     }
 
     public function tracks() {
-        return $this->belongsToMany(Track::class, 'record_track', 'record_id', 'track_id');
-    }
-
-    public function isLinkedTo($trackId) {
-        return in_array($trackId, $this->tracks->pluck('track_id')); 
+        return $this->hasMany(Track::class);
     }
 }

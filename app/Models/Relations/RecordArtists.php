@@ -3,10 +3,9 @@
 namespace App\Models\Relations;
 use Illuminate\Database\Eloquent\Model;
 
-class RecordArtist extends Model
+class RecordArtists extends Model
 {
-    protected $table = 'record_artist';
-
+    protected $tableName = 'record_artists';
     /**
      * The attributes that are mass assignable.
      *
@@ -14,6 +13,6 @@ class RecordArtist extends Model
      */
     protected $fillable = [
         'record_id',
-        'artist_id',
+        'artist_id'
     ];
 }

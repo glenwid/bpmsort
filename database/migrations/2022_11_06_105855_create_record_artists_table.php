@@ -3,8 +3,10 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Record;
+use App\Models\Artist;
 
-class CreateRecordTracksTable extends Migration
+class CreateRecordArtistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +15,12 @@ class CreateRecordTracksTable extends Migration
      */
     public function up()
     {
-        Schema::create('record_track', function (Blueprint $table) {
+        Schema::create('record_artists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->foreignId('record_id');
-            $table->foreignId('track_id')->unique();
+            $table->foreignIdFor(Record::class);
+            $table->foreignIdFor(Artist::class);
         });
     }
 
@@ -29,6 +31,6 @@ class CreateRecordTracksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('record_track');
+        Schema::dropIfExists('record_artists');
     }
 }

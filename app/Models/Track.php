@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Track extends Model
 {
-    protected $primaryKey = 'track_id';
     protected $table = 'tracks';
 
     /**
@@ -17,6 +16,11 @@ class Track extends Model
         'title',
         'duration',
         'position',
-        'bpm'
+        'bpm',
+        'record_id',
     ];
+
+    public function record() {
+        return $this->hasOne(Record::class);
+    }
 }

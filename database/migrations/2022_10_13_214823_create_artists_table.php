@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateArtistsTable extends Migration
 {
-    protected $primaryKey = 'artists_table';
     protected $table = 'artists';
 
     /**
@@ -17,7 +16,7 @@ class CreateArtistsTable extends Migration
     public function up()
     {
         Schema::create('artists', function (Blueprint $table) {
-            $table->id('artist_id');
+            $table->id();
             $table->timestamps();
 
             $table->string('name');

@@ -1,10 +1,11 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Artist;
+use App\Models\Track;
 
-class CreateRecordArtistTable extends Migration
+class CreateTrackArtistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +14,12 @@ class CreateRecordArtistTable extends Migration
      */
     public function up()
     {
-        Schema::create('record_artist', function (Blueprint $table) {
+        Schema::create('track_artists', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->foreignId('record_id');
-            $table->foreignId('artist_id');
+            $table->foreignIdFor(Track::class);
+            $table->foreignIdFor(Artist::class);
         });
     }
 
@@ -29,6 +30,6 @@ class CreateRecordArtistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('record_artist');
+        Schema::dropIfExists('track_artists');
     }
 }
