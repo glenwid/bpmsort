@@ -24,6 +24,8 @@ class CreateTracksTable extends Migration
             $table->integer('bpm')->nullable();
 
             $table->foreignIdFor(Record::class);
+            $table->string('spotify_id')->nullable();
+            $table->float('precision')->nullable();
         });
     }
 

@@ -18,6 +18,8 @@ class Track extends Model
         'position',
         'bpm',
         'record_id',
+        'spotify_id',
+        'precision'
     ];
 
     public function record() {
