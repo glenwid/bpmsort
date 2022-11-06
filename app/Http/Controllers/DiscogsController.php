@@ -91,7 +91,7 @@ class DiscogsController extends BaseController
 
             # check if the currently selected record has any synced tracks
             $record = $records[$index];
-            if(Record::find($record->record_id)->tracks->count() == 0) {
+            if(Record::find($record->getKey())->tracks->count() == 0) {
 
                 # lets look this record up on discogs 🤓
                 # TODO: add unique user agent header to request so discogs will trust us
@@ -109,26 +109,12 @@ class DiscogsController extends BaseController
 
                     # make sure all the queried record's tracks are added to the db
                     foreach($tracks as $track) {
-
-                        # prevent duplicates
-                        # TODO: check with $record->isLinkedTo()
-                        if(!Track::where([
+                        Track::create([
                             'title' => $track->title,
-                            'duration' => $track->duration
-                            ])->exists()) {
-                                $arrival = Track::create([
-                                    'title' => $track->title,
-                                    'duration' => $track->duration,
-                                    'position' => $track->position,
-                                    'bpm' => 420,
-                                ]);
-
-                                # link it with the record
-                                RecordTracks::create([
-                                    'track_id' => $arrival->track_id,
-                                    'record_id' => $record->record_id,
-                                ]);
-                        }
+                            'duration' => $track->duration,
+                            'position' => $track->position,
+                            'record_id' => $record->getKey()
+                        ]);
                     }
                 }
             }
