@@ -1,11 +1,9 @@
 <?php
 
-use Aerni\Spotify\Spotify as SpotifySpotify;
 use App\Http\Controllers\DiscogsController;
 use App\Http\Controllers\SpotifyController;
+use App\Http\Controllers\CollectionController;
 
-use App\Models\Record;
-use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +28,6 @@ Route::get('/discogs/tracks', [DiscogsController::class, 'pullTracks']);
 
 Route::get('/spotify/tracks', [SpotifyController::class, 'getTracksBpm']);
 
-Route::get('/test', function(Request $request) {
-    return response('test');
-});
+Route::get('/test', [SpotifyController::class, 'pickSearchResult']);
+
+Route::get('/collection', [CollectionController::class, 'getCollection']);
