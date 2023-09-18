@@ -16,9 +16,15 @@ class Record extends Model
      */
     protected $fillable = [
         'title',
+        'thumb',
+        'cover_image',
         'discogs_master_id',
         'discogs_id',
-        'artist_id'
+        'artist_id',
+    ];
+
+    protected $with = [
+        'artists',
     ];
 
     public function artists() {

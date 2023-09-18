@@ -24,8 +24,9 @@ class DiscogsController extends BaseController
             'token' => env('DISCOGS_TOKEN')
         ]);
 
-        $response = json_decode($response);
+        Log::debug($response);
 
+        $response = json_decode($response);
         $counter = 1;
         while(property_exists($response->pagination->urls, 'next')) {
 
@@ -40,6 +41,8 @@ class DiscogsController extends BaseController
                         'discogs_id' => $record->id,
                         'discogs_master_id' => $record->basic_information->master_id,
                         'title' => $record->basic_information->title,
+                        'thumb' => $record->basic_information->thumb,
+                        'cover_image' => $record->basic_information->cover_image,
                     ]);
 
                     foreach($record->basic_information->artists as $artist) {

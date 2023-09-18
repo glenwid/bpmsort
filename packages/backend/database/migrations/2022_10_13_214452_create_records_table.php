@@ -19,6 +19,8 @@ class CreateRecordsTable extends Migration
             $table->integer('discogs_id');
             $table->integer('discogs_master_id');
             $table->string('title');
+            $table->string('thumb')->nullable();
+            $table->string('cover_image')->nullable();
         });
     }
 
