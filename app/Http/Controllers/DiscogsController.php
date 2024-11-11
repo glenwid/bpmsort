@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Artist;
 use App\Models\Record;
-use App\Models\Relations\RecordArtists;
 use App\Models\Track;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Http;
