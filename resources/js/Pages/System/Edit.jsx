@@ -3,7 +3,7 @@ import { theme } from '@/theme';
 import { Typography, Button, Space } from 'antd';
 import Statistic from 'antd/es/statistic/Statistic';
 
-const DashboardLayout = styled.section`
+const EditLayout = styled.section`
 
    
 `;
@@ -14,7 +14,7 @@ export default function Dashboard({
 
 
     return (
-        <DashboardLayout>
+        <EditLayout>
             <Typography.Title 
                 level={1}
                 style={{
@@ -23,15 +23,9 @@ export default function Dashboard({
             >bpmsort</Typography.Title>
 
             <Space>
-                <Statistic 
-                    title="Records in collection" 
-                    value={records.length}
-                />
-
-                <Button type="primary">Add Record</Button>
+                
 
             </Space>
-            
-        </DashboardLayout>
+        </EditLayout>
     );
 }
