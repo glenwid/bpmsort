@@ -12,3 +12,4 @@ Route::group(['middleware' => EnsureDiscogsConnection::class], function () {
 });
 
 Route::get('/system', [SystemController::class, 'index'])->name('system');
+Route::put('/system', [SystemController::class, 'update'])->name('system.update');
