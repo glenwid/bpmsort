@@ -16,7 +16,7 @@ export const Feedback = () => {
     }, [success]);
 
     useEffect(() => {
-        if (Object.keys(errors).length > 0) {
+        if (errors && typeof errors === 'object' && Object.keys(errors).length > 0) {
             Object.keys(errors).forEach((key) => {
                 messageApi.open({
                     type: 'error',
