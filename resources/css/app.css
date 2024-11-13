@@ -20,6 +20,11 @@
     }
 }
 
+.menu-button {
+    bottom: 10vh; 
+    right: clamp(1rem, 5vw, 20vw);
+}
+
 h1, h2, h3 {
     font-family: 'Poller One', sans-serif !important;
 }

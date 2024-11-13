@@ -7,6 +7,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { ConfigProvider } from 'antd';
 import { antdTheme, theme } from '@/theme';
 import { AppFrame } from './Layouts/AppFrame';
+import { MenuButton } from './Components/MenuButton';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -18,7 +19,12 @@ createInertiaApp({
             import.meta.glob('./Pages/**/*.jsx'),
         ).then((module) => {
             const Page = module.default;
-            Page.layout = Page.layout || ((page) => <AppFrame>{page}</AppFrame>);
+            Page.layout = Page.layout || ((page) => (
+                <AppFrame>
+                    {page}
+                </AppFrame>
+            ));
+
             return Page;
         }),
     setup({ el, App, props }) {
@@ -30,6 +36,8 @@ createInertiaApp({
         createRoot(el).render(
             <ConfigProvider theme={antdTheme}>
                 <App {...props} />
+
+                <MenuButton />
             </ConfigProvider>
         );
     },
