@@ -14,5 +14,4 @@ export const Card = styled(AntdCard)`
     max-width: 400px;
     width: 100%; 
     z-index: 3;
-    margin-top: -0.666rem;
 `;

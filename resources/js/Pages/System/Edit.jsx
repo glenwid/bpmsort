@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Button, Space, Form, Input } from 'antd';
 import { useForm } from '@inertiajs/react';
 import { Card } from "@/Components/Card";
+import { CenteredLayout } from '@/Layouts/CenteredLayout';
 
 const SystemForm = styled(Form)`
     display: flex;
@@ -21,10 +22,10 @@ const SystemForm = styled(Form)`
     }
 `;
 
-export default function Edit({
+const Edit = ({
     discogs_token,
     discogs_username,
-}) {
+}) => {
     const { data, setData, put, processing } = useForm({
         'discogs_username': discogs_username,
         'discogs_token': discogs_token,
@@ -37,7 +38,9 @@ export default function Edit({
 
     return (
         <>
-            <Card size={'small'}>
+            <Card size={'small'} style={{
+                marginBottom: '-0.666rem',
+            }}>
                 <SystemForm layout='vertical'>
                     <Form.Item label="Discogs username">
                         <Input 
@@ -67,3 +70,7 @@ export default function Edit({
         </>
     );
 }
+
+Edit.layout = page => <CenteredLayout children={page} />;
+
+export default Edit;
