@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { theme } from "@/theme";
 import { AppName } from "@/Components/AppName";
+import { Feedback } from "@/Components/Feedback";
 
 const Frame = styled.section`
     display: flex;
@@ -37,6 +38,8 @@ export const AppFrame = ({ children }) => {
 
                 {children}
             </section>
+
+            <Feedback />
         </Frame>
     );
 }
