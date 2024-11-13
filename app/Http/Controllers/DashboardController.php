@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller as BaseController;
 use Inertia\Inertia;
 use App\Models\Record;
+use App\Models\Track;
 
 class DashboardController extends BaseController
 {
@@ -11,6 +12,9 @@ class DashboardController extends BaseController
     {
         return Inertia::render('Dashboard', [
             'records' => Record::all(),
+            'tracks' => Track::all(), 
+            'success' => session('success'), 
+            'errors' => session('errors'), 
         ]);
     }
 }

@@ -31,18 +31,17 @@ const CounterWrapper = styled.div`
 
 `;
 
-export const CollectionWidget = ({ count }) => {
-    const { post, processing } = useForm();
-    
-    const handleSync = () => {
-        post(route('collection.sync'));
-    };
-
+export const CollectionWidget = ({ 
+    count = 0, 
+    title = 'Collection', 
+    processing = false, 
+    onSync = () => {},
+}) => {
     return (
         <CounterWrapper>
             <Card size="small">
                 <Statistic 
-                    title="Records in collection" 
+                    title={title} 
                     value={count}
                 />
 
@@ -52,6 +51,7 @@ export const CollectionWidget = ({ count }) => {
                     type={'primary'}
                     size="large"
                     loading={processing}
+                    onClick={onSync}
                 />
             </Card>
         </CounterWrapper>

@@ -69,7 +69,7 @@ class DiscogsController extends BaseController {
             $response = json_Decode(Http::get($response->pagination->urls->next));
         }
 
-        return response('Successfully pulled collection from discogs.', 200);
+        return back()->with('success', 'Records synced.');
     }
 
     # https://api.discogs.com/releases/{id}
@@ -81,7 +81,7 @@ class DiscogsController extends BaseController {
 
         $records = Record::all();
 
-        $records->foreach(function($record) use (&$counter, &$rateLimit) {
+        $records->each(function($record) use (&$counter, &$rateLimit) {
             # have a little sleep if we have hit the rate limit 🛌🏻💤
             if($counter == $rateLimit) {
                 Log::info('Ratelimit hit 💥');
@@ -89,7 +89,7 @@ class DiscogsController extends BaseController {
             }
 
             # no tracks in a record shows a missing sync, let's fix that
-            if($record->tracks->count() == 0) {
+            if($record?->tracks?->count() == 0) {
 
                 # lets look this record up on discogs 🤓
                 # TODO: add unique user agent header to request so discogs will trust us
@@ -102,7 +102,7 @@ class DiscogsController extends BaseController {
                 $counter = $response->header('X-Discogs-Ratelimit-Used');
 
                 $body = json_decode($response->body());
-                if(property_exists($body, 'tracklist')) {
+                if(is_object($body) && property_exists($body, 'tracklist')) {
                     $tracks = $body->tracklist;
 
                     # make sure all the queried record's tracks are added to the db
@@ -118,6 +118,6 @@ class DiscogsController extends BaseController {
             }
         });
 
-        return response('All records synced.');
+        return back()->with('success', 'Tracks synced.');
     }
 }
