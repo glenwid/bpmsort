@@ -24,7 +24,7 @@ class System extends Model
             self::$instance = new static(); 
         }
 
-        return self::$instance;
+        return self::$instance->first();
     }
 
     public static function discogsUsername()
@@ -35,5 +35,15 @@ class System extends Model
     public static function discogsToken()
     {
         return self::getInstance()->discogs_token;
+    }
+
+    public static function setDiscogsUsername($username)
+    {
+        self::getInstance()->update(['discogs_username' => $username]);
+    }
+
+    public static function setDiscogsToken($token)
+    {
+        self::getInstance()->update(['discogs_token' => $token]);
     }
 }
