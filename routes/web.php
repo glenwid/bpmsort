@@ -8,7 +8,7 @@ use App\Http\Middleware\EnsureDiscogsConnection;
 
 Route::group(['middleware' => EnsureDiscogsConnection::class], function () {
     Route::get('/', [DashboardController::class, 'index']);
-    Route::get('/pull', [DiscogsController::class, 'pullUserCollection']);
+    Route::post('/discogs/sync', [DiscogsController::class, 'pullUserCollection'])->name('discogs.sync');
 });
 
 Route::get('/system', [SystemController::class, 'index'])->name('system');

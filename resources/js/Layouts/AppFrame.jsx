@@ -2,17 +2,18 @@ import styled from "@emotion/styled";
 import { theme } from "@/theme";
 import { AppName } from "@/Components/AppName";
 import { Feedback } from "@/Components/Feedback";
+import { Card } from "@/Components/Card";
+import { Flex } from "antd";
+import { CollectionWidget } from "@/Components/CollectionWidget";
 
 const Frame = styled.section`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
     max-height: 100vh;
     height: 100%;
     width: 100%;
-    padding: 0rem 2rem 2rem;
+    padding: 2rem 2rem 2rem;
     background-color: ${theme.colors.grey[100]};
     opacity: 1;
 
@@ -22,11 +23,6 @@ const Frame = styled.section`
         
         margin-left: auto;
         margin-right: auto;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 `;
 
@@ -34,7 +30,14 @@ export const AppFrame = ({ children }) => {
     return (
         <Frame>
             <section className="content">
-                <AppName />
+                <Flex gap={12}>
+                    <Card style={{ maxWidth: 607 }}>
+                        <AppName />
+                    </Card>
+
+                    <CollectionWidget />
+                    
+                </Flex>
 
                 {children}
             </section>
