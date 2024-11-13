@@ -19,7 +19,7 @@ class EnsureDiscogsConnection
         # redirect to system settings if discogs data is not set
         $system = System::getInstance();
         if($system->discogs_token === null) {
-            return redirect(route('system.set'))->with('error', 'Discogs token and username not set');
+            return redirect(route('system'))->with('error', 'Discogs token and username not set');
         }
 
         return $next($request);

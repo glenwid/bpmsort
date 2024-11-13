@@ -13,17 +13,27 @@ class System extends Model
 
     private static $instance = null;
 
-    private function __construct()
-    {
-        // Private constructor to prevent direct instantiation
-    }
+    # protected to prevent instantiation from outside this class
+    protected function __construct() {}
+
+    protected function __clone() {}
 
     public static function getInstance()
     {
         if (self::$instance === null) {
-            self::$instance = new self();
+            self::$instance = new static(); 
         }
 
         return self::$instance;
+    }
+
+    public static function discogsUsername()
+    {
+        return self::getInstance()->discogs_username;
+    }
+
+    public static function discogsToken()
+    {
+        return self::getInstance()->discogs_token;
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiscogsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SystemController;
 use App\Http\Middleware\EnsureDiscogsConnection;
 
 Route::group(['middleware' => EnsureDiscogsConnection::class], function () {
@@ -10,3 +11,4 @@ Route::group(['middleware' => EnsureDiscogsConnection::class], function () {
     Route::get('/pull', [DiscogsController::class, 'pullUserCollection']);
 });
 
+Route::get('/system', [SystemController::class, 'index'])->name('system');
