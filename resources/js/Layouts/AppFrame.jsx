@@ -3,11 +3,12 @@ import { theme } from "@/theme";
 import { AppName } from "@/Components/AppName";
 import { Feedback } from "@/Components/Feedback";
 import { Card } from "@/Components/Card";
-import { Flex } from "antd";
+import { Flex, Layout as AntdLayout } from "antd";
 import { CollectionWidget } from "@/Components/CollectionWidget";
 import { usePage, useForm } from "@inertiajs/react";
+import { Header } from "@/Components/Header";
 
-const Frame = styled.section`
+export const Layout = styled(AntdLayout)`
     display: flex;
     flex-direction: column;
 
@@ -25,6 +26,10 @@ const Frame = styled.section`
         margin-left: auto;
         margin-right: auto;
     }
+
+    main {
+
+    }
 `;
 
 export const AppFrame = ({ children }) => {
@@ -32,13 +37,11 @@ export const AppFrame = ({ children }) => {
     const { post, processing } = useForm();
 
     return (
-        <Frame>
-            <section className="content">
-                <Flex gap={12} justify="space-between">
-                    <Card style={{ maxWidth: 607 }}>
-                        <AppName />
-                    </Card>
+        <Layout>
+            <Header />
 
+            <Layout.Content className="content">
+                <Flex gap={12} justify="space-between">
                     <CollectionWidget 
                         title="Tracks in collection"
                         count={tracks.length} 
@@ -59,9 +62,9 @@ export const AppFrame = ({ children }) => {
                 </Flex>
 
                 {children}
-            </section>
+            </Layout.Content>
 
             <Feedback />
-        </Frame>
+        </Layout>
     );
 }

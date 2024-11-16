@@ -7,8 +7,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { ConfigProvider } from 'antd';
 import { antdTheme, theme } from '@/theme';
 import { AppFrame } from './Layouts/AppFrame';
-import { MenuButton } from './Components/MenuButton';
-import { Globals } from './globals';
+import { Globals } from './Globals';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -39,8 +38,6 @@ createInertiaApp({
                 <Globals />
                 <ConfigProvider theme={antdTheme}>
                     <App {...props} />
-
-                    <MenuButton />
                 </ConfigProvider>
             </>
         );
