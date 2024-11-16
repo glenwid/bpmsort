@@ -8,6 +8,7 @@ import { ConfigProvider } from 'antd';
 import { antdTheme, theme } from '@/theme';
 import { AppFrame } from './Layouts/AppFrame';
 import { MenuButton } from './Components/MenuButton';
+import { Globals } from './globals';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -34,11 +35,14 @@ createInertiaApp({
         }
 
         createRoot(el).render(
-            <ConfigProvider theme={antdTheme}>
-                <App {...props} />
+            <> 
+                <Globals />
+                <ConfigProvider theme={antdTheme}>
+                    <App {...props} />
 
-                <MenuButton />
-            </ConfigProvider>
+                    <MenuButton />
+                </ConfigProvider>
+            </>
         );
     },
     progress: {

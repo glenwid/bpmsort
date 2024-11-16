@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
-import { Typography } from "antd"
-import { theme } from "@/theme"
+import styled from "styled-components";
+import { Typography } from "antd";
+import { theme } from "@/theme";
 
 const StyledTitle = styled(Typography.Title)`
     // using :is() to increase specificity over antd

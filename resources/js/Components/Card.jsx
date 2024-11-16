@@ -1,5 +1,5 @@
 import { Card as AntdCard } from 'antd';
-import styled from '@emotion/styled';
+import styled from "styled-components";
 import { hexToRgb } from "@/utils";
 import { theme } from "@/theme";
 

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "styled-components";
 import { Button, Space, Form, Input } from 'antd';
 import { useForm } from '@inertiajs/react';
 import { Card } from "@/Components/Card";

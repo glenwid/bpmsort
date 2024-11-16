@@ -1,9 +1,8 @@
-import { Statistic, Button, Tooltip } from "antd";
+import { Statistic, Button } from "antd";
 import { Card } from "./Card";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { theme } from "@/theme";
 import { SyncOutlined } from "@ant-design/icons";
-import { useForm } from "@inertiajs/react";
 
 const CounterWrapper = styled.div`
     .ant-statistic-title { 

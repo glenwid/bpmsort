@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { theme } from "@/theme";
 import { AppName } from "@/Components/AppName";
 import { Feedback } from "@/Components/Feedback";
