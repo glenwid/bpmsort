@@ -1,5 +1,5 @@
-``` 
-Work in progress! 🏗️
+
+# Work in progress! 🏗️
 This is a started and unfinished project. 
 As a record collector and hobby DJ I was looking for a tool that enables me to query my vast collection of vinyl records by their tempo (BPM) or other meta data to be able to plan sets better. 
 
