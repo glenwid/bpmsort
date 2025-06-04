@@ -4,7 +4,6 @@ This is a started and unfinished project.
 As a record collector and hobby DJ I was looking for a tool that enables me to query my vast collection of vinyl records by their tempo (BPM) or other meta data to be able to plan sets better. 
 
 This tool connects data from Discog's and Spotify's APIs to gather detailed data points about songs and albums. Backend has functional scraping functionality which can be triggered through a frontend. This web app is not finished yet and is merely a proof of concept. With more time I'd refactor the scraping into queable jobs and would add more Frontend functionality. 
-```
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
