@@ -11,7 +11,7 @@ class DashboardController extends BaseController
     public function index()
     {
         return Inertia::render('Dashboard', [
-            'records' => Record::all(),
+            'records' => Record::with('artists')->get(),
             'tracks' => Track::all(), 
             'success' => session('success'), 
             'errors' => session('errors'), 
