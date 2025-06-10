@@ -2,7 +2,7 @@ import { Card } from "antd";
 
 export const theme = {
     colors: {
-        primary: "", 
+        primary: '#240046', 
         purple: {
             100: "#9d4edd",
             200: "#7b2cbf",
@@ -38,7 +38,7 @@ export const theme = {
             200: '#cccdc6',
             100: '#e8e9eb',
         }
-    }
+    },     
 }
 
 export const antdTheme = {
@@ -50,5 +50,6 @@ export const antdTheme = {
         colorBgContainer: theme.colors.black[100],
         colorBorderSecondary: theme.colors.black[500],
 
+        boxShadowTertiary: 'rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;',
     },
 };
