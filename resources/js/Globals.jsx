@@ -32,6 +32,10 @@ export const Globals = createGlobalStyle`
         margin-block-start: 0;
     }
 
+    main {
+        overflow: unset !important; 
+    }
+
     body, html, #app {
         height: 100vh;
         width: 100vw;
