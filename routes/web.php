@@ -10,6 +10,7 @@ Route::group(['middleware' => EnsureDiscogsConnection::class], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/records/sync', [DiscogsController::class, 'pullUserCollection'])->name('records.sync');
     Route::post('/tracks/sync', [DiscogsController::class, 'pullTracks'])->name('tracks.sync');
+    Route::get('/system/sync', [SystemController::class, 'sync'])->name('system.sync');
 });
 
 Route::get('/system', [SystemController::class, 'index'])->name('system');

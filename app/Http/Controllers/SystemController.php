@@ -6,6 +6,8 @@ use App\Http\Requests\UpdateSystemRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\System;
+use App\Models\Record;
+use App\Models\Track;
 
 class SystemController extends Controller
 {
@@ -14,6 +16,15 @@ class SystemController extends Controller
         return Inertia::render('System/Edit', [
             'discogs_username' => System::discogsUsername(),
             'discogs_token' => System::discogsToken(),
+            'success' => session('success'),
+            'error' => session('error'), 
+        ]);
+    }
+
+    public function sync(Request $request) {
+        return Inertia::render('System/Sync', [
+            'records' => Record::all(), 
+            'tracks' => Track::all(), 
             'success' => session('success'),
             'error' => session('error'), 
         ]);
