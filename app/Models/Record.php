@@ -21,4 +21,9 @@ class Record extends Model
     {
         return $this->belongsToMany(Artist::class);
     }
+
+    public function tracks()
+    {
+        return $this->hasMany(Track::class);
+    }
 }
