@@ -1,6 +1,4 @@
-import styled from "styled-components";
-import { Typography, Button, Space } from 'antd';
-import Statistic from 'antd/es/statistic/Statistic';
+import { Space } from 'antd';
 
 export default function Dashboard({
     records,
