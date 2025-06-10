@@ -25,4 +25,11 @@ class RecordsController extends BaseController
         ]);
     }
 
+    public function show(Request $request, Record $record) {
+        return Inertia::render('Records/Show', [
+            'record' => $record->load('artists', 'tracks'),
+            'success' => session('success'), 
+            'errors' => session('errors'), 
+        ]);
+    }
 }

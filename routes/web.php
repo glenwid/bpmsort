@@ -5,6 +5,8 @@ use App\Http\Controllers\DiscogsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SystemController;
 use App\Http\Middleware\EnsureDiscogsConnection;
+use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\ArtistController;
 
 Route::group(['middleware' => EnsureDiscogsConnection::class], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
