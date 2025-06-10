@@ -11,16 +11,15 @@ export const Layout = styled(AntdLayout)`
     max-height: 100vh;
     height: 100%;
     width: 100%;
-    padding: 2rem 2rem 2rem;
     background-color: ${theme.colors.grey[100]};
     opacity: 1;
 
     .content {  
         width: 100%;
-        max-width: 60rem; 
-        
+        max-height: calc(100vh);
         margin-left: auto;
         margin-right: auto;
+        padding: 0rem 1rem 1rem;
     }
 `;
 
